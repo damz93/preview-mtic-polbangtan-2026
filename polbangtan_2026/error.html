@@ -24,12 +24,17 @@ td { font-size: 12px; color: #7A7A7A; }
 <script>
 function errorMessage(e){
 	if(e === 'invalid') return '❌ Username atau password salah';
-	if(e === 'already_logged_in') return '⚠️ Akun ini sedang digunakan di perangkat lain';
+	if(e === 'already-authorized' || e === 'already_logged_in')
+		return '⚠️ Akun ini sedang digunakan di perangkat lain';
 	if(e === 'session_limit') return '⚠️ Akun telah mencapai batas login';
 	if(e === 'uptime_limit') return '⏰ Waktu akses telah habis';
+	if(e === 'expired') return '⏰ Akun atau voucher sudah kedaluwarsa';
 	return 'Login gagal. Silakan coba kembali.';
+    if(e === 'no-valid-profile')
+	return '❌ Akun tidak memiliki profil hotspot';
 }
 </script>
+
 
 </head>
 
