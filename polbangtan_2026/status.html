@@ -316,12 +316,12 @@ button:focus {
     };
 	.login-card{
 	background:#fff;color:#333;
-	max-width:240px;width:90%;
-	padding:100px;border-radius:90px;
+	max-width:80px;width:90%;
+	padding:10px;border-radius:90px;
 	margin-top: 50px;
 	box-shadow:0 20px 40px rgba(0,0,0,.25)
 }
-.right{order:1;padding:24px 36px;position:relative;}
+.right{order:1;padding:24px 36px;position:relative;margin-bottom: 4rem;}
 .top-menu{
 	gap:10px;
 	margin-top: 3rem;
@@ -378,6 +378,8 @@ button:focus {
 	.footer-bar{
 		flex-direction:column;
 		gap:0px;
+        width: 100%;
+        background-color: #000000;
 		padding:5px 0px;
 		text-align:center;
 	}
@@ -439,7 +441,7 @@ button:focus {
 			<b>Selamat!</b><br>Anda telah berhasil login
 		</h2>
 
-		<table class="table table-bordered kecil mt-3">
+		<table class="table table-bordered">
 			<tr>
 				<td><b>Username</b></td>
 				<td style="text-align:left;">
@@ -502,15 +504,15 @@ button:focus {
 	<div class="right">
 
 		<div class="top-menu">
-			<a href="#" class="menu-link active" data-target="survey">SURVEY</a>
-			<a href="#" class="menu-link" data-target="home">HOME</a>
+			<!-- <a href="#" class="menu-link active" data-target="survey">SURVEY</a> -->
+			<a href="#" class="menu-link active" data-target="home">HOME</a>
 			<a href="#" class="menu-link" data-target="hubungi">HUBUNGI KAMI</a>
 			<a href="#" class="menu-link" data-target="tentang">TENTANG KAMI</a>
 		</div>
 
 		<div class="content-area" style="margin-top: 50px;">
 
-			<div class="content-section active" id="survey">                
+			<div class="content-section active" id="home">                
 				<img src="pic/rules.png" width="80%">
                 <ul style="font-size: .93rem; margin-top: 30px;">
                     <li>Akun hotspot bersifat pribadi dan tidak boleh dipinjamkan atau dibagikan.</li>
@@ -519,7 +521,7 @@ button:focus {
                     <li>Penggunaan berlebihan atau mencurigakan dapat menyebabkan akun diblokir.</li>
                     <li>Pelanggaran aturan akan dikenakan sanksi sesuai ketentuan kampus.</li>
                 </ul>
-                <p style="color: #f7ca37;font-size: 1.2rem;font-weight: bold;text-align: center;">Tingkatkan Layanan Internet Kampus<br> dengan mengisi survey di bawah ini :</p>
+                <p style="color: #f7ca37;font-size: 1rem;font-weight: bold;text-align: center;">Tingkatkan Layanan Internet Kampus<br> dengan mengisi survey di bawah ini :</p>
                 <button type="submit" class="btn btn-survey" onclick="window.open('https://whatsform.com/u_qw6o','_blank')">
                     
 				<small>
@@ -530,7 +532,7 @@ button:focus {
 			</button>   
 
             </div>
-			<div class="content-section" id="home">
+			<!-- <div class="content-section" id="home">
 				<img src="pic/home.png" width="93%">
 				<div class="hero-text">
 	
@@ -538,7 +540,7 @@ button:focus {
                     <p style="text-align: justify;">
                         Setiap pengguna wajib login menggunakan akun resmi kampus dan menggunakan layanan internet secara bijak, aman, dan bertanggung jawab sesuai dengan kebijakan Teknologi Informasi Polbangtan Gowa.</p>
 				</div>
-			</div>
+			</div> -->
 
 			<div class="content-section" id="hubungi" style="text-align: left;">
 				<div class="hero-text">
