@@ -78,7 +78,7 @@ body{
 }
 
 /* ===== LAYOUT ===== */
-.wrapper{display:flex;min-height:100vh}
+.wrapper{display:flex;min-height:100%}
 .left,.right{width:50%}
 .left{display:flex;align-items:center;justify-content:center}
 .right{padding:20px 40px;position:relative}
@@ -87,6 +87,8 @@ body{
 .login-card{
 	background:#fff;color:#333;
 	max-width:460px;width:100%;
+    max-height: auto;
+    margin-top: 8rem;
 	padding:50px;border-radius:30px;
 	box-shadow:0 20px 40px rgba(0,0,0,.25)
 }
@@ -319,7 +321,7 @@ button:focus {
 	background:#fff;color:#333;
 	max-width:80px;width:90%;
 	padding:10px;border-radius:90px;
-	margin-top: 50px;
+	margin-top: 10px;
 	box-shadow:0 20px 40px rgba(0,0,0,.25)
 }
 .right{order:1;padding:24px 36px;position:relative;margin-bottom: 4rem;}
