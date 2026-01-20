@@ -188,7 +188,7 @@ button:focus {
 .footer-bar{
 	position:fixed;
 	bottom:0;
-	width:95%;
+	width:100%;
 	/* padding:0px 10px 10px 20px; */
 
 	display:flex;
@@ -206,7 +206,8 @@ button:focus {
 .footer-left,
 .footer-right{
 	display:flex;
-	margin-left: 200px;
+	margin-left: 180px;
+	margin-right: 180px;
 	align-items:center;
 	gap:8px;
 }
@@ -327,40 +328,60 @@ button:focus {
 	z-index:1;             /* ⬅️ di bawah logo kanan */
 }
 	.footer-bar{
-		flex-direction:column;
-		gap:0px;
-		padding:5px 0px;
-		text-align:center;
-	}
-	.footer-left,
-	.footer-right{
-		margin-top: -20px;
-		margin-left: 0px;
-		justify-content:center;
-		flex-wrap:wrap;
-	}
-	.footer-text2{
-	white-space:nowrap;
-	text-align: left;
-	font-size: .6rem;
-	font-weight: bold;
-	margin-left: -5px;
-	line-height:1;
-}
-	.footer-text{
-	white-space:nowrap;
-	text-align: right;
-	font-size: .5rem;
-	font-weight: bold;
-	margin-left: -5px;
-	line-height:1;
-}.footer-left img,
-.footer-right img{
-	height:20px;
-	width:auto;
-	opacity:.98;
-}
+	display:flex;
+	flex-direction:column;
+	gap:-8px;
+	justify-content:center;
+	align-items:center;   /* ⬅️ pusatkan semua item */
+	margin:0 0px;
 	
+	padding-bottom: -10px;
+	text-align:center;   /* ⬅️ teks default ke tengah */
+}
+footer{
+	padding:100px 0 !important;   /* ⬅️ kecilkan jarak atas & bawah */
+	margin:0;
+	transform: translateY(-100px);
+
+}
+
+.footer-left,
+.footer-right{
+	display:flex;	
+	justify-content:center;
+	align-items:center;
+	flex-wrap:wrap;
+	margin:0;           
+	gap:5px;
+}
+
+.footer-text2{
+	white-space:nowrap;
+	text-align:left;
+	font-size:.8rem;
+	font-weight:bold;
+	line-height:1.2;
+	margin:0;
+}
+
+.footer-text{
+	white-space:nowrap;
+	text-align:right;
+	font-size:.4rem;
+	font-weight:bold;
+	line-height:1.1;
+	margin:0;
+}
+
+.footer-left img,
+.footer-right img{
+	height:18px;
+	width:auto;
+	opacity:.93;
+	display:block;
+}
+
+		
 }
 
 </style>
