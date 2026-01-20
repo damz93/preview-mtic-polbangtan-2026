@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/w3.css">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="expires" content="-1" />
+		<title>POLITEKNIK PEMBANGUNAN PERTANIAN GOWA | Hubungi Kami</title>
+		<link rel="icon" type="image/x-icon" href="pict/polbangtan_gowa.png">
+		<link href="css/bootstrap2.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/botstrap-icons.css">
+		<link rel="stylesheet" href="css/new-style.css">
+
+		<style>
+			body{
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		$(if chap-id)
+		<form name="sendin" action="$(link-login-only)" method="post">
+			<input type="hidden" name="username" />
+			<input type="hidden" name="password" />
+			<input type="hidden" name="accesscode" />
+			<input type="hidden" name="dst" value="$(link-orig)" />
+			<input type="hidden" name="popup" value="true" />
+		</form>
+		<script type="text/javascript" src="md5.js"></script>
+		<script type="text/javascript">
+			<!--
+			  function doLogin() {
+			    // Jika kode akses diisi, gunakan kode akses, jika tidak, gunakan username dan password
+			    var accessCode = document.login.accesscode.value;
+			    var accessCode_cek = '$(chap-id)' + document.login.accesscode.value + '$(chap-challenge)';
+			    if (accessCode.toLowerCase() === "accesscode") {
+			      // document.sendin.username.value = "";        
+			      document.sendin.username.value = document.login.accesscode.value;
+			      document.sendin.password.value = hexMD5(accessCode_cek);
+			    } else {
+			      document.sendin.username.value = document.login.username.value;
+			      document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+			    }
+			    document.sendin.submit();
+			    return false;
+			  }
+			//-->
+		</script>
+		$(endif)
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-md sticky-top mynavbar navbar-dark">
+			<!-- <nav class="navbar fixed-top shadow-sm navbar navbar-expand-lg navbar-dark"> -->
+			<!-- <nav class="fixed-top shadow-sm navbar navbar-expand-lg navbar-dark" style="border-bottom: 10px solid #00bf63;background-image: linear-gradient(to right,#169d44,#007012);"> -->
+			<div class="container">
+				<img title="polbangtan_gowa" src="pict/polbangtan_gowa.png" width="80px" class="m-2">
+				<a class="navbar-brand">
+				POLITEKNIK PEMBANGUNAN <br>PERTANIAN GOWA</a>
+				<button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+					aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+					<div class="offcanvas-header">
+						<h2 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: white;">POLBANGTAN GOWA</h2>
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body">
+						<div class="navbar-nav ms-auto">
+							<a class="nav-link" href="status.html" style="font-size: 1.2rem;">HOME</a>
+							<a class="nav-link active" href="hubungi-kami-.html" style="font-size: 1.2rem;">HUBUNGI KAMI</a>
+							<a class="nav-link" href="tentang-kami-.html" style="font-size: 1.2rem;">TENTANG KAMI</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="background-image">
+			<img src="pict/hub.png" alt="Background Image"/>
+			<div class="overlay">
+				<hr class="horizontal-line">
+				<div class="text-inside-line">
+					<div id="datetime"></div>
+				</div>
+			</div>
+		</div>
+		<!-- akhir navbar -->
+		
+		<section id="hubungi" class="hubungi">
+			<div class="bg_hijau"></div>
+			<div class="container" style="width: 100%;margin: 0; padding: 0;">
+				<div class="row justify-content-center">
+					<div class="kiri col-12 col-md-4 text-center" style="margin: 0; padding: 0;">
+						<!-- <div class="w3-content w3-display-container slider-container"> -->
+						<div class="slideshow-container2">
+							<!-- <div class="slider"> -->
+							<div class="mySlides2">
+								<img src="pict/8.png" style="width:100%">
+							</div>
+							<div class="mySlides2">
+								<img src="pict/6.png" style="width:100%">
+							</div>
+							<div class="mySlides2">
+								<img src="pict/7.png" style="width:100%">
+							</div>
+							<div class="mySlides2">
+								<img src="pict/9.png" style="width:100%">
+							</div>
+							<div class="mySlides2">
+								<img src="pict/10.png" style="width:100%">
+							</div>
+							<div style="text-align:center">
+								<div class="prev2 w3-right w3-hover-text-khaki"  onclick="plusDivs2(-1)">&#10094;</div>
+								<div class="next2 w3-right w3-hover-text-khaki" onclick="plusDivs2(1)">&#10095;</div>
+								<div class="titik w3-container2 w3-section w3-large w3-text-white w3-display-bottomleft">
+									<span class="w3-badge2 demo2 w3-border w3-transparent w3-hover-white" onclick="currentDiv2(1)"></span>
+									<span class="w3-badge2 demo2 w3-border w3-transparent w3-hover-white" onclick="currentDiv2(2)"></span>
+									<span class="w3-badge2 demo2 w3-border w3-transparent w3-hover-white" onclick="currentDiv2(3)"></span>
+									<span class="w3-badge2 demo2 w3-border w3-transparent w3-hover-white" onclick="currentDiv2(4)"></span>
+									<span class="w3-badge2 demo2 w3-border w3-transparent w3-hover-white" onclick="currentDiv2(5)"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="kanan col-12 col-md-8 text-center" style="margin: 0;padding-left: 50px; padding-right: 50px;">
+						<h3 class="mt-2">HUBUNGI KAMI</h3><br>
+						<p style="text-align: left;">Lokasi Kami: </p>
+						<p style="text-align: left;"><b>Unit Teknologi dan Informasi (TIK)</b></p>
+						<p style="text-align: left;">(Gedung PPID Lantai 2) - Kampus I Politeknik Pembangunan Pertanian Gowa</p>
+						<p style="text-align: left;">Jl. Malino Km.7 Romanglompoa, Kec. Bontomarannu, Kabupaten Gowa, Provinsi Sulawesi Selatan - 92172</p><br>
+						<p style="text-align: left;"><a style="padding-right: 5px;text-decoration: none;color: white;" href="https://wa.me/081340814212" target="_blank" title="Whatsapp"><img src="pict/icon/wa.png" style="width: 16px;">&nbsp;&nbsp;0813 4081 4212</a></p>
+						<p style="text-align: left;"><a style="padding-right: 5px;text-decoration: none;color: white;" href="mailto:utik@polbangtan-gowa.ac.id" target="_blank" title="E-mail"><img src="pict/icon/email.png" style="width: 16px;">&nbsp;&nbsp;utik@polbangtan-gowa.ac.id</a></p>
+						<p style="text-align: left;"><a style="padding-right: 5px;text-decoration: none;color: white;" href="https://polbangtan-gowa.ac.id" target="_blank" title="Website"><img src="pict/icon/web.png" style="width: 16px;">&nbsp;&nbsp;polbangtan-gowa.ac.id</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- akhir Hubungi -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+			crossorigin="anonymous"></script> -->
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script>
+			const navbar = document.querySelector('.navbar-nav');
+			const navLinks = navbar.querySelectorAll('.nav-link');
+			
+			navLinks.forEach(link => {
+				link.addEventListener('click', () => {
+					navLinks.forEach(link => link.classList.remove('active'));
+					link.classList.add('active');
+				});
+			});
+		</script>
+		<script>
+			var slideIndex = 1;
+			showDivs2(slideIndex);
+
+			function plusDivs2(n) {
+			showDivs2(slideIndex += n);
+			}
+
+			function currentDiv2(n) {
+			showDivs2(slideIndex = n);
+			}
+
+			function showDivs2(n) {
+			var i;
+			var x = document.getElementsByClassName("mySlides2");
+			var dots = document.getElementsByClassName("demo2");
+			
+			if (n > x.length) { slideIndex = 1; }
+			if (n < 1) { slideIndex = x.length; }
+
+			// Sembunyikan semua slide
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";  
+			}
+			
+			// Hilangkan tanda bulat aktif dari semua tanda bulat
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" w3-white", "");
+			}
+
+			// Tampilkan slide dan atur tanda bulat aktif
+			x[slideIndex - 1].style.display = "block";  
+			dots[slideIndex - 1].className += " w3-white";
+			}
+
+			// Fungsi untuk mengatur interval otomatis setiap 5 detik
+			function autoSlide2() {
+			plusDivs2(1);
+			}
+
+			// Mengatur interval otomatis dengan waktu 5000 milidetik (5 detik)
+			setInterval(autoSlide2, 5000);
+			
+		</script>
+		<script>
+			function updateDateTime() {
+				// Mendapatkan objek tanggal dan waktu saat ini
+				var now = new Date();
+			
+				// Mendapatkan informasi hari, tanggal, bulan, dan tahun
+				var days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+				var day = days[now.getDay()]; // Hari
+				var date = now.getDate(); // Tanggal
+				var monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+				var month = monthNames[now.getMonth()]; // Bulan
+				var year = now.getFullYear(); // Tahun
+			
+				// Mendapatkan informasi jam, menit, dan detik
+				var hours = now.getHours(); // Jam
+				var minutes = now.getMinutes(); // Menit
+				var seconds = now.getSeconds(); // Detik
+			
+				// Menampilkan informasi ke elemen dengan id "datetime"
+				document.getElementById('datetime').innerHTML = formatTime(date) + ', ' + month + ' ' + year + ' | ' + formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds) + ' WITA';
+			
+				// Memperbarui setiap detik (1000 milidetik)
+				setTimeout(updateDateTime, 1000);
+			}
+			
+			function formatTime(time) {
+				// Menambahkan nol di depan angka jika angka kurang dari 10
+				return time < 10 ? '0' + time : time;
+			}
+			
+			// Memanggil fungsi pertama kali untuk menginisialisasi
+			updateDateTime();
+			
+  			
+		</script>
+		
+	</body>
+</html>
