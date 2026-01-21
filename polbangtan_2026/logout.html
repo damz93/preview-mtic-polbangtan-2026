@@ -1,128 +1,43 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="css/w3.css">
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="pragma" content="no-cache" />
-		<meta http-equiv="expires" content="-1" />
-		<title>POLITEKNIK PEMBANGUNAN PERTANIAN GOWA | Logout</title>
-		<link rel="icon" type="image/x-icon" href="pict/polbangtan_gowa.png">
-		<link href="css/bootstrap2.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/botstrap-icons.css">
-		<link rel="stylesheet" href="css/new-style.css">
-		<script language="JavaScript">
-			<!--
-			$(if advert-pending == 'yes')
-			    var popup = '';
-			    function focusAdvert() {
-				if (window.focus) popup.focus();
-			    }
-			    function openAdvert() {
-				popup = open('$(link-advert)', 'hotspot_advert', '');
-				setTimeout("focusAdvert()", 1000);
-			    }
-			$(endif)
-			    function openLogout() {
-				if (window.name != 'hotspot_status') return true;
-			        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
-				window.close();
-				return false;
-			    }
-			    function readablizeBytes(bytes) {
-					var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
-					var e = Math.floor(Math.log(bytes)/Math.log(1024));
-					return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
-					}
-			//-->
-		</script>
-    <style>
-      body{
-        background-image: url(../pict/bg-hijau.png);
-      }
-    </style>
-    <script>
-        window.location.href = "login.html";
-    </script>
-	</head>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="3;url=$(link-login)">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<script language="JavaScript">
-		function openLogin() {
-      
-			if (window.name != 'hotspot_logout') return true;
-			open('$(link-login)', '_blank', '');
-      
-			window.close();
-			return false;
-		}
-	</script>  
-	<body style="background-image: url(pict/bg-hijau.png);">
-		<div class="container">
-		<div class="col-md-10 col-md-offset-1 well" style="padding:0px;">
-		<div class="col-md-4 " style="padding:15px;">
-			<!-- <table class="table table-bordered kecil" >
-				<tr>
-					<td>Username</td>
-					<td>$(if login-by == 'trial') $(mac)
-						$(elif login-by != 'mac')
-						$(username)
-						$(endif)
-					</td>
-				</tr>
-				<tr>
-					<td>IP Address</td>
-					<td>$(ip)</td>
-				</tr>
-				<tr>
-					<td>MAC Address</td>
-					<td>$(mac)</td>
-				</tr>
-				<tr>
-					<td>Traffic Down</td>
-					<td>$(bytes-out-nice)</td>
-				</tr>
-				<tr>
-					<td>Traffic Up</td>
-					<td>$(bytes-in-nice)</td>
-				</tr>
-				$(if remain-bytes-out)
-				<tr>
-					<td>Sisa Kuota</td>
-					<td>
-						<script language="JavaScript">document.write(readablizeBytes($(remain-bytes-out)));</script>
-					</td>
-				</tr>
-				$(endif)
-				$(if session-time-left)
-				<tr>
-					<td>Sisa Waktu</td>
-					<td>$(session-time-left)</td>
-				</tr>
-				$(endif)
-				$(if blocked == 'yes')
-				<tr>
-					<td>Status</td>
-					<td>
-						<div style="color: #FF8080">
-							<a href="$(link-advert)" target="hotspot_advert">advertisement</a> required
-						</div>
-					</td>
-					$(elif refresh-timeout)
-				<tr>
-					<td>Refresh</td>
-					<td>$(refresh-timeout)</td>
-					$(endif)
-			</table> -->
-			<form action="$(link-login)" name="login" onSubmit="return openLogin()">
-				<input type="hidden" name="erase-cookie" value="on">
-				$(if login-by-mac != 'yes')
-				<center>Klik <b>"LOGIN"</b> untuk terhubung kembali</center>
-				<center><button type="submit" class="btn btn-merah" style="width:49%; margin-bottom: 15px;"><small><b><span class="glyphicon glyphicon-exclamation-sign"></span> LOGIN</b></small></button></center>
-				$(endif)
-			</form>
-		</div>
-	</body>
+<title>Logout</title>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+body{
+	margin:0;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:100vh;
+	font-family:'Public Sans',sans-serif;
+	background:linear-gradient(135deg,#2555d0,#163286);
+	color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+Swal.fire({
+	toast:true,
+	position:'top',
+	icon:'success',
+	title:'Logout berhasil',
+	text:'Anda akan diarahkan ke halaman login',
+	showConfirmButton:false,
+	timer:2500
+});
+</script>
+
+<p>⏳ Mengalihkan ke halaman login...</p>
+
+</body>
 </html>

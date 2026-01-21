@@ -524,9 +524,10 @@ function doLogout(){
 				<form id="logoutForm" action="$(link-logout)">
 	<input type="hidden" name="erase-cookie" value="on">
 	$(if login-by-mac != 'yes')
-	<button type="button" class="btn btn-login" onclick="confirmLogout()">
-		<small><b>LOGOUT</b></small>
-	</button>
+	<button class="btn btn-login" onclick="window.location='$(link-logout)'">
+	LOGOUT
+</button>
+
 	$(endif)
 </form>
 
