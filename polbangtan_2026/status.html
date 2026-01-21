@@ -25,6 +25,43 @@
 				window.close();
 				return false;
 			}
+			</script>
+			<script>
+function confirmLogout(){
+	Swal.fire({
+		title: 'Konfirmasi Logout',
+		text: 'Anda akan keluar dari layanan internet.',
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonText: 'Ya, Logout',
+		cancelButtonText: 'Batal',
+		reverseButtons: true,
+		confirmButtonColor: '#d33',
+		cancelButtonColor: '#6c757d'
+	}).then((result)=>{
+		if(result.isConfirmed){
+			doLogout();
+		}
+	});
+}
+
+function doLogout(){
+	// Jika status page dibuka sebagai popup MikroTik
+	if(window.name === 'hotspot_status'){
+		window.open(
+			'$(link-logout)?logout=1',
+			'hotspot_logout',
+			'toolbar=0,location=0,status=0,menubar=0,resizable=1,width=280,height=250'
+		);
+		setTimeout(()=>window.close(),500);
+		return;
+	}
+
+	// Normal page
+	window.location.href = '$(link-logout)?logout=1';
+}
+</script>
+
 			// <!--
 			// $(if advert-pending == 'yes')
 			// 	var popup = '';
@@ -75,7 +112,7 @@
 			// 		return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
 			// 		}
 			// //-->
-		</script>
+
 		<script>
 			function showToast(icon, title, text){
 				Swal.fire({
@@ -484,19 +521,16 @@
 					</tr>
 					$(endif)
 				</table>
-				<form action="$(link-logout)" name="logout" onsubmit="return openLogout();">
-					<input type="hidden" name="erase-cookie" value="on">
-					$(if login-by-mac != 'yes')
-					<button type="submit" class="btn btn-login">
-					<small>
-					<b>
-					<span class="glyphicon glyphicon-off"></span>
-					LOGOUT
-					</b>
-					</small>
-					</button>
-					$(endif)
-				</form>
+				<form id="logoutForm" action="$(link-logout)">
+	<input type="hidden" name="erase-cookie" value="on">
+	$(if login-by-mac != 'yes')
+	<button type="button" class="btn btn-login" onclick="confirmLogout()">
+		<small><b>LOGOUT</b></small>
+	</button>
+	$(endif)
+</form>
+
+
 				<div class="footer-login" id="clock"></div>
 			</div>
 		</div>
@@ -511,7 +545,6 @@
 			<div class="content-area" style="margin-top: 50px;">
 				<div class="content-section active" id="home">
 					<img src="pic/rules.png" style="width:80%; display:block; margin:0 auto;">
-
 					<ul style="font-size: .93rem; margin-top: 30px; line-height: 1.6;text-align: justify;">
 						<li>Akun hotspot bersifat pribadi dan tidak boleh dipinjamkan atau dibagikan.</li>
 						<li>Akses internet hanya untuk keperluan akademik dan administratif kampus.</li>

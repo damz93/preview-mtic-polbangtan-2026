@@ -665,7 +665,22 @@ function showToast(icon, title, text){
 		}
 	});
 }
+
+function getParam(name){
+	return new URLSearchParams(window.location.search).get(name);
+}
+
+window.onload = function(){
+	if(getParam('logout') === '1'){
+		showToast(
+			'success',
+			'Logout Berhasil',
+			'Anda telah keluar dari layanan internet.'
+		);
+	}
+};
 </script>
+
 
 </body>
 </html>
