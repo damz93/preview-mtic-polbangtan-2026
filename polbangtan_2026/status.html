@@ -1,658 +1,617 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/w3.css">
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="pragma" content="no-cache" />
 		<meta http-equiv="expires" content="-1" />
 		<title>POLITEKNIK PEMBANGUNAN PERTANIAN GOWA | Status</title>
 		<link rel="icon" type="image/x-icon" href="pict/polbangtan_gowa.png">
 		<link href="css/bootstrap2.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/botstrap-icons.css">
-		<link rel="stylesheet" href="css/new-style.css">
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<link rel="stylesheet" href="css/style.css">
 		$(if refresh-timeout)
 		<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
 		$(endif)
-		<script language="JavaScript">
-			<!--
-			$(if advert-pending == 'yes')
-				var popup = '';
-				function focusAdvert() {
-				if (window.focus) popup.focus();
-				}
-				function openAdvert() {
-				popup = open('$(link-advert)', 'hotspot_advert', '');
-				setTimeout("focusAdvert()", 1000);
-				}
-			$(endif)
-				function openLogout() {
+		<script>
+			function openLogout() {
 				if (window.name != 'hotspot_status') return true;
-					open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+				open('$(link-logout)', 'hotspot_logout',
+					'toolbar=0,location=0,status=0,menubar=0,resizable=1,width=280,height=250'
+				);
 				window.close();
 				return false;
-				}
-				function openLogout() {
-					if (window.name != 'hotspot_status') return true;
-						open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
-					window.close();
-					return false;
+			}
+			// <!--
+			// $(if advert-pending == 'yes')
+			// 	var popup = '';
+			// 	function focusAdvert() {
+			// 	if (window.focus) popup.focus();
+			// 	}
+			// 	function openAdvert() {
+			// 	popup = open('$(link-advert)', 'hotspot_advert', '');
+			// 	setTimeout("focusAdvert()", 1000);
+			// 	}
+			// $(endif)
+			
+			// 	// function openLogout() {
+			// 	// if (window.name != 'hotspot_status') return true;
+			// 	// 	open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+			// 	// window.close();
+			// 	// return false;
+			// 	// }
+			// 	// function openLogout() {
+			// 	// 	if (window.name != 'hotspot_status') return true;
+			// 	// 		open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+			// 	// 	window.close();
+			// 	// 	return false;
+			// 	// 	}
+			
+			// 		// Lakukan logout di MikroTik melalui API (contoh)
+			// 		fetch('polbangtangowa.net/login/logout', {
+			// 			method: 'POST',
+			// 			// Atur header sesuai kebutuhan Anda
+			// 			headers: {
+			// 				'Content-Type': 'application/json',
+			// 				// Mungkin perlu menambahkan header otorisasi atau token
+			// 			},
+			// 			// Atur body sesuai kebutuhan Anda
+			// 			body: JSON.stringify({
+			// 				// Data yang mungkin dibutuhkan untuk logout di MikroTik
+			// 			}),
+			// 		});
+			
+			// 		// Jika ingin tetap menutup jendela setelah logout di MikroTik, hilangkan baris ini
+			// 		// window.close();
+			
+			// 		return false;
+			// 	}
+			// 	function readablizeBytes(bytes) {
+			// 		var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+			// 		var e = Math.floor(Math.log(bytes)/Math.log(1024));
+			// 		return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+			// 		}
+			// //-->
+		</script>
+		<script>
+			function showToast(icon, title, text){
+				Swal.fire({
+					toast: true,
+					position: 'top',
+					icon: icon,
+					title: title,
+					text: text,
+					showConfirmButton: false,
+					timer: 3500,
+					timerProgressBar: true,
+					customClass: {
+						popup: 'notif-toast'
 					}
-
-					// Lakukan logout di MikroTik melalui API (contoh)
-					fetch('polbangtangowa.net/login/logout', {
-						method: 'POST',
-						// Atur header sesuai kebutuhan Anda
-						headers: {
-							'Content-Type': 'application/json',
-							// Mungkin perlu menambahkan header otorisasi atau token
-						},
-						// Atur body sesuai kebutuhan Anda
-						body: JSON.stringify({
-							// Data yang mungkin dibutuhkan untuk logout di MikroTik
-						}),
-					});
-
-					// Jika ingin tetap menutup jendela setelah logout di MikroTik, hilangkan baris ini
-					// window.close();
-
-					return false;
-				}
-				function readablizeBytes(bytes) {
-					var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
-					var e = Math.floor(Math.log(bytes)/Math.log(1024));
-					return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
-					}
-			//-->
+				});
+			}
 		</script>
 		<style>
-*{box-sizing:border-box;font-family:'Public Sans',sans-serif}
-body{
-	margin:0;
-	min-height:100vh;
-	background:linear-gradient(135deg,#2555d0,#163286);
-	color:#fff;
-}
-
-/* ===== LAYOUT ===== */
-.wrapper{display:flex;min-height:100%}
-.left,.right{width:50%}
-.left{display:flex;align-items:center;justify-content:center}
-.right{padding:20px 40px;position:relative}
-
-/* ===== LOGIN ===== */
-.login-card{
-	background:#fff;color:#333;
-	max-width:460px;width:100%;
-    max-height: auto;
-    margin-top: 50px;
-	padding:50px;border-radius:30px;
-	box-shadow:0 20px 40px rgba(0,0,0,.25)
-}
-.login-card h2{text-align:center;color:#000000;font-size:24px;margin-bottom:20px}
-.login-card p{text-align:center;font-size:13px}
-
-.login-card input{
-	width:100%;padding:12px 15px;margin-bottom:20px;
-	border-radius:30px;border:1px solid #ccc
-}
-.btn-login{
-	width:100%;padding:12px;border-radius:100px;
-	border:none;background:#ff0000;color:#fff;font-weight:600
-}
-.btn-survey{
-	width:100%;padding:10px;border-radius:100px;
-	border:none;background:#f7ca37;color:#293d86;font-weight:600
-}
-/* ===== BUTTON INTERACTION FIX ===== */
-button,
-.btn-login,
-.btn-survey,
-.btn-whatsapp {
-	cursor: pointer;
-	transition: all .25s ease;
-}
-
-/* Hover effect */
-.btn-login:hover {
-	background:#ca1a1a;
-	transform: translateY(-1px);
-    color: white;
-	box-shadow:0 8px 18px rgba(255, 75, 75, 0.4);
-}
-/* Hover effect */
-.btn-survey:hover {
-	background:#a78822;
-	transform: translateY(-1px);
-    color: white;
-	box-shadow:0 8px 18px rgba(228, 255, 75, 0.4);
-}
-
-.btn-secondary:hover {
-	background:#a58ec7;
-	transform: translateY(-1px);
-	box-shadow:0 8px 18px rgba(188,170,215,.45);
-}
-
-.btn-whatsapp:hover {
-	background:#1ebe5d;
-	transform: translateY(-1px);
-	box-shadow:0 8px 18px rgba(37,211,102,.45);
-}
-
-/* Active (saat ditekan) */
-button:active {
-	transform: scale(.97);
-	box-shadow:none;
-}
-
-/* Focus (keyboard / accessibility) */
-button:focus {
-	outline:none;
-	box-shadow:0 0 0 3px rgba(75,92,255,.35);
-}
-
-
-.btn-row{display:flex;gap:10px;margin-top:10px}
-.btn-row button{flex:1}
-
-.btn-secondary{
-	background:#bcaad7;color:#fff;border:none;
-	padding:11px;border-radius:30px;font-weight:600
-}
-.btn-whatsapp{
-	background:#25D366;color:#fff;border:none;
-	padding:11px;border-radius:30px;font-weight:600
-}
-
-.footer-login{text-align:center;font-size:12px;color:#777;margin-top:15px}
-
-/* ===== MENU ===== */
-.top-menu{
-	display:flex;gap:20px;margin-bottom:50px;margin-top: 7rem;font-size: 1.5rem;
-}
-.top-menu a{color:#fff;text-decoration:none;font-weight:600}
-.top-menu a.active{color:#ffd400}
-
-/* ===== CONTENT DINAMIS ===== */
-.content-area{max-width:520px}
-.content-section{display:none;animation:fade .25s ease-in}
-.content-section.active{display:block}
-
-.hero-text h2{margin-bottom:10px}
-.hero-text p{line-height:1.6;font-size:14px}
-
-.list-layanan{padding-left:20px;line-height:1.8}
-
-@keyframes fade{
-	from{opacity:0;transform:translateY(8px)}
-	to{opacity:1;transform:none}
-}
-
-/* ===== LOGO ===== */
-.logo-header{
-	position:absolute;
-	top:10px;
-	left:20px;
-
-	display:flex;
-	align-items:center;     /* ⬅️ PENTING */
-	gap:12px;
-
-	z-index:10;
-	color:#fff;
-}
-
-.logo-header img{
-	height:48px;
-	width:auto;
-}
-
-.logo-text{
-	font-size:14px;
-	font-weight:600;
-	line-height:1.25;
-	margin-left: -10px;
-	white-space:nowrap;
-}
-.logo-kanan{
-	position:absolute;
-	top:10px;              /* ⬅️ SAMA dengan logo-header */
-	right:30px;            /* ⬅️ mirror dari left:30px */
-	display:flex;
-	align-items:center;    /* ⬅️ PENTING: sejajar vertikal */
-	gap:8px;
-	z-index:10;
-}
-
-.logo-kanan img{
-	height:72px;           /* ⬅️ SAMAKAN dengan logo kiri */
-	width:auto;
-	margin:0;              /* ⬅️ hapus margin-right lama */
-}
-.bg-putih-logo{
-	position:absolute;
-	top:0;
-	right:0;
-	width:240px;
-	height:80px;
-	background:#fff;
-	border-bottom-left-radius:420px 380px;
-	z-index:1;             /* ⬅️ di bawah logo kanan */
-}
-
-/* ===== BG KIRI BAWAH ===== */
-.bg-kiri-bawah{
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 320px;          /* sesuaikan ukuran PNG */
-	max-width: 80%;
-	z-index: -5;            /* di atas background, di bawah konten */
-	pointer-events: none; /* tidak mengganggu klik tombol */
-}
-.footer-bar{
-	position:fixed;
-	bottom:0;
-	width:100%;
-	/* padding:0px 10px 10px 20px; */
-
-	display:flex;
-	justify-content:space-between;
-	align-items:center;
-
-	/* background:rgba(255,255,255,.08);  */
-	/* backdrop-filter: blur(6px); */
-
-	font-size:12px;
-	color:#fff;
-	z-index:5;
-}
-
-.footer-left,
-.footer-right{
-	display:flex;
-	margin-left: 180px;
-	margin-right: 180px;
-	align-items:center;
-	gap:8px;
-}
-
-.footer-left img,
-.footer-right img{
-	height:30px;
-	width:auto;
-	opacity:.98;
-}
-
-.footer-left .gbr-bisa{
-	margin-right: -10px;
-	height: 80px;
-}
-
-.footer-text2{
-	white-space:nowrap;
-	text-align: left;
-	font-size: .9rem;
-	font-weight: bold;
-	margin-left: -5px;
-	line-height:1;
-}
-.footer-text{
-	white-space:nowrap;
-	text-align: right;	
-	font-style: italic;
-	font-size: .7rem;
-	line-height:1;
-}
-
-
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-	.left{
-        order: 2;
-        margin-bottom: 6rem;
-    };
-	.login-card{
-	background:#fff;color:#333;
-	max-width:80px;width:90%;
-	padding:10px;border-radius:90px;
-	margin-top: 10px;
-	box-shadow:0 20px 40px rgba(0,0,0,.25)
-}
-.right{order:1;padding:24px 36px;position:relative;margin-bottom: 4rem;}
-.top-menu{
-	gap:10px;
-	margin-top: 3rem;
-	font-size: 1rem;
-	margin-bottom:2rem;
-}
-
-
-.logo-header img{
-	height:35px;
-	width:auto;
-}
-
-.logo-text{
-	font-size:10px;
-	font-weight:600;
-	line-height:1.25;
-	margin-left: -10px;
-	white-space:nowrap;
-}
-.logo-kanan{
-	position:absolute;
-	top:0px;              /* ⬅️ SAMA dengan logo-header */
-	right:2px;            /* ⬅️ mirror dari left:30px */
-	display:flex;
-	align-items:center;    /* ⬅️ PENTING: sejajar vertikal */
-	gap:8px;
-	z-index:10;
-}
-
-
-.login-card h1{text-align:center;color:#293d86;font-size:18px;font-weight: bold;font-weight: bolder;margin-bottom:20px}
-	.wrapper{flex-direction:column}
-	.left,.right{width:100%}
-.bg-kiri-bawah{
-	width: 120px;
-	z-index: -5;  
-	filter: blur(2px);
-	
-}	
-	.logo-kanan img{
-		height:50px;
-	}
-	.bg-putih-logo{
-	position:absolute;
-	top:0;
-	right:0;
-	width:140px;
-	height:50px;
-	background:#fff;
-	border-bottom-left-radius:120px 120px;
-	z-index:1;             /* ⬅️ di bawah logo kanan */
-}
-	.footer-bar{
-	display:flex;
-	flex-direction:column;
-	gap:-8px;
-	justify-content:center;
-	align-items:center;   /* ⬅️ pusatkan semua item */
-	margin:0 0px;
-	
-	padding-bottom: -10px;
-	text-align:center;   /* ⬅️ teks default ke tengah */
-}
-footer{
-	padding:100px 0 !important;   /* ⬅️ kecilkan jarak atas & bawah */
-	margin:0;
-	transform: translateY(-100px);
-
-}
-
-.footer-left,
-.footer-right{
-	display:flex;	
-	justify-content:center;
-	align-items:center;
-	flex-wrap:wrap;
-	margin:0;           
-	gap:5px;
-}
-
-.footer-text2{
-	white-space:nowrap;
-	text-align:left;
-	font-size:.8rem;
-	font-weight:bold;
-	line-height:1.2;
-	margin:0;
-}
-
-.footer-text{
-	white-space:nowrap;
-	text-align:right;
-	font-size:.4rem;
-	font-weight:bold;
-	line-height:1.1;
-	margin:0;
-}
-
-.footer-left img,
-.footer-right img{
-	height:18px;
-	width:auto;
-	opacity:.93;
-	display:block;
-}
-}
-
-</style>
+			.notif-toast{
+			border-radius:16px!important;
+			box-shadow:0 12px 30px rgba(0,0,0,.25)!important;
+			font-family:'Public Sans',sans-serif;
+			}
+			*{box-sizing:border-box;font-family:'Public Sans',sans-serif}
+			body{
+			margin:0;
+			min-height:100vh;
+			background:linear-gradient(135deg,#2555d0,#163286);
+			color:#fff;
+			}
+			/* ===== LAYOUT ===== */
+			.wrapper{display:flex;min-height:100%}
+			.left,.right{width:50%}
+			.left{display:flex;align-items:center;justify-content:center}
+			.right{padding:20px 40px;position:relative}
+			/* ===== LOGIN ===== */
+			.login-card{
+			background:#fff;color:#333;
+			max-width:460px;width:100%;
+			max-height: auto;
+			margin-top: 50px;
+			padding:50px;border-radius:30px;
+			box-shadow:0 20px 40px rgba(0,0,0,.25)
+			}
+			.login-card h2{text-align:center;color:#000000;font-size:24px;margin-bottom:20px}
+			.login-card p{text-align:center;font-size:13px}
+			.login-card input{
+			width:100%;padding:12px 15px;margin-bottom:20px;
+			border-radius:30px;border:1px solid #ccc
+			}
+			.btn-login{
+			width:100%;padding:12px;border-radius:100px;
+			border:none;background:#ff0000;color:#fff;font-weight:600
+			}
+			.btn-survey{
+			width:100%;padding:10px;border-radius:100px;
+			border:none;background:#f7ca37;color:#293d86;font-weight:600
+			}
+			/* ===== BUTTON INTERACTION FIX ===== */
+			button,
+			.btn-login,
+			.btn-survey,
+			.btn-whatsapp {
+			cursor: pointer;
+			transition: all .25s ease;
+			}
+			/* Hover effect */
+			.btn-login:hover {
+			background:#ca1a1a;
+			transform: translateY(-1px);
+			color: white;
+			box-shadow:0 8px 18px rgba(255, 75, 75, 0.4);
+			}
+			/* Hover effect */
+			.btn-survey:hover {
+			background:#a78822;
+			transform: translateY(-1px);
+			color: white;
+			box-shadow:0 8px 18px rgba(228, 255, 75, 0.4);
+			}
+			.btn-secondary:hover {
+			background:#a58ec7;
+			transform: translateY(-1px);
+			box-shadow:0 8px 18px rgba(188,170,215,.45);
+			}
+			.btn-whatsapp:hover {
+			background:#1ebe5d;
+			transform: translateY(-1px);
+			box-shadow:0 8px 18px rgba(37,211,102,.45);
+			}
+			/* Active (saat ditekan) */
+			button:active {
+			transform: scale(.97);
+			box-shadow:none;
+			}
+			/* Focus (keyboard / accessibility) */
+			button:focus {
+			outline:none;
+			box-shadow:0 0 0 3px rgba(75,92,255,.35);
+			}
+			.btn-row{display:flex;gap:10px;margin-top:10px}
+			.btn-row button{flex:1}
+			.btn-secondary{
+			background:#bcaad7;color:#fff;border:none;
+			padding:11px;border-radius:30px;font-weight:600
+			}
+			.btn-whatsapp{
+			background:#25D366;color:#fff;border:none;
+			padding:11px;border-radius:30px;font-weight:600
+			}
+			.footer-login{text-align:center;font-size:12px;color:#777;margin-top:15px}
+			/* ===== MENU ===== */
+			.top-menu{
+			display:flex;gap:20px;margin-bottom:50px;margin-top: 7rem;font-size: 1.5rem;
+			}
+			.top-menu a{color:#fff;text-decoration:none;font-weight:600}
+			.top-menu a.active{color:#ffd400}
+			/* ===== CONTENT DINAMIS ===== */
+			.content-area{max-width:520px}
+			.content-section{display:none;animation:fade .25s ease-in}
+			.content-section.active{display:block}
+			.hero-text h2{margin-bottom:10px}
+			.hero-text p{line-height:1.6;font-size:14px}
+			.list-layanan{padding-left:20px;line-height:1.8}
+			@keyframes fade{
+			from{opacity:0;transform:translateY(8px)}
+			to{opacity:1;transform:none}
+			}
+			/* ===== LOGO ===== */
+			.logo-header{
+			position:absolute;
+			top:10px;
+			left:20px;
+			display:flex;
+			align-items:center;     /* ⬅️ PENTING */
+			gap:12px;
+			z-index:10;
+			color:#fff;
+			}
+			.logo-header img{
+			height:48px;
+			width:auto;
+			}
+			.logo-text{
+			font-size:14px;
+			font-weight:600;
+			line-height:1.25;
+			margin-left: -10px;
+			white-space:nowrap;
+			}
+			.logo-kanan{
+			position:absolute;
+			top:10px;              /* ⬅️ SAMA dengan logo-header */
+			right:30px;            /* ⬅️ mirror dari left:30px */
+			display:flex;
+			align-items:center;    /* ⬅️ PENTING: sejajar vertikal */
+			gap:8px;
+			z-index:10;
+			}
+			.logo-kanan img{
+			height:72px;           /* ⬅️ SAMAKAN dengan logo kiri */
+			width:auto;
+			margin:0;              /* ⬅️ hapus margin-right lama */
+			}
+			.bg-putih-logo{
+			position:absolute;
+			top:0;
+			right:0;
+			width:240px;
+			height:80px;
+			background:#fff;
+			border-bottom-left-radius:420px 380px;
+			z-index:1;             /* ⬅️ di bawah logo kanan */
+			}
+			/* ===== BG KIRI BAWAH ===== */
+			.bg-kiri-bawah{
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 320px;          /* sesuaikan ukuran PNG */
+			max-width: 80%;
+			z-index: -5;            /* di atas background, di bawah konten */
+			pointer-events: none; /* tidak mengganggu klik tombol */
+			}
+			.footer-bar{
+			position:fixed;
+			bottom:0;
+			width:100%;
+			/* padding:0px 10px 10px 20px; */
+			display:flex;
+			justify-content:space-between;
+			align-items:center;
+			/* background:rgba(255,255,255,.08);  */
+			/* backdrop-filter: blur(6px); */
+			font-size:12px;
+			color:#fff;
+			z-index:5;
+			}
+			.footer-left,
+			.footer-right{
+			display:flex;
+			margin-left: 180px;
+			margin-right: 180px;
+			align-items:center;
+			gap:8px;
+			}
+			.footer-left img,
+			.footer-right img{
+			height:30px;
+			width:auto;
+			opacity:.98;
+			}
+			.footer-left .gbr-bisa{
+			margin-right: -10px;
+			height: 80px;
+			}
+			.footer-text2{
+			white-space:nowrap;
+			text-align: left;
+			font-size: .9rem;
+			font-weight: bold;
+			margin-left: -5px;
+			line-height:1;
+			}
+			.footer-text{
+			white-space:nowrap;
+			text-align: right;	
+			font-style: italic;
+			font-size: .7rem;
+			line-height:1;
+			}
+			/* ===== RESPONSIVE ===== */
+			@media(max-width:900px){
+			.left{
+			order: 2;
+			margin-bottom: 6rem;
+			}
+			.login-card{
+			background:#fff;
+			color:#333;
+			max-width:420px;
+			width:92%;
+			margin:40px auto;
+			padding:30px;
+			border-radius:28px;
+			box-shadow:0 20px 45px rgba(0,0,0,.25);
+			}
+			.table td{
+			vertical-align:middle;
+			font-size:.9rem;
+			}
+			.table td:first-child{
+			font-weight:600;
+			width:40%;
+			}
+			.right{order:1;padding:24px 36px;position:relative;margin-bottom: 4rem;}
+			.top-menu{
+			display: flex;
+			justify-content: center; /* tengah horizontal */
+			align-items: center;
+			gap:10px;
+			margin-top: 3rem;
+			margin-bottom:2rem;
+			font-size: 1rem;
+			}
+			.logo-header img{
+			height:35px;
+			width:auto;
+			}
+			.logo-text{
+			font-size:10px;
+			font-weight:600;
+			line-height:1.25;
+			margin-left: -10px;
+			white-space:nowrap;
+			}
+			.logo-kanan{
+			position:absolute;
+			top:0px;              /* ⬅️ SAMA dengan logo-header */
+			right:2px;            /* ⬅️ mirror dari left:30px */
+			display:flex;
+			align-items:center;    /* ⬅️ PENTING: sejajar vertikal */
+			gap:8px;
+			z-index:10;
+			}
+			.login-card h1{text-align:center;color:#293d86;font-size:18px;font-weight: bold;font-weight: bolder;margin-bottom:20px}
+			.wrapper{flex-direction:column}
+			.left,.right{width:100%}
+			.bg-kiri-bawah{
+			width: 120px;
+			z-index: -5;  
+			filter: blur(2px);
+			}	
+			.logo-kanan img{
+			height:50px;
+			}
+			.bg-putih-logo{
+			position:absolute;
+			top:0;
+			right:0;
+			width:140px;
+			height:50px;
+			background:#fff;
+			border-bottom-left-radius:120px 120px;
+			z-index:1;             /* ⬅️ di bawah logo kanan */
+			}
+			.footer-bar{
+			display:flex;
+			flex-direction:column;
+			gap:-8px;
+			justify-content:center;
+			align-items:center;   /* ⬅️ pusatkan semua item */
+			margin:0 0px;
+			padding-bottom: -10px;
+			text-align:center;   /* ⬅️ teks default ke tengah */
+			}
+			footer{
+			padding:100px 0 !important;   /* ⬅️ kecilkan jarak atas & bawah */
+			margin:0;
+			transform: translateY(-100px);
+			}
+			.footer-left,
+			.footer-right{
+			display:flex;	
+			justify-content:center;
+			align-items:center;
+			flex-wrap:wrap;
+			margin:0;           
+			gap:5px;
+			}
+			.footer-text2{
+			white-space:nowrap;
+			text-align:left;
+			font-size:.8rem;
+			font-weight:bold;
+			line-height:1.2;
+			margin:0;
+			}
+			.footer-text{
+			white-space:nowrap;
+			text-align:right;
+			font-size:.4rem;
+			font-weight:bold;
+			line-height:1.1;
+			margin:0;
+			}
+			.footer-left img,
+			.footer-right img{
+			height:18px;
+			width:auto;
+			opacity:.93;
+			display:block;
+			}
+			}
+		</style>
 	</head>
 	<body $(if advert-pending == 'yes')
 	onLoad="openAdvert()" $(endif)>
 	<div class="wrapper">
-
-	<!-- LOGO -->
-	<div class="logo-header">
-	<img src="pic/logo-polbangtan.png" alt="Logo Polbangtan">
-	<div class="logo-text">
-		Politeknik Pembangunan<br>Pertanian Gowa
-	</div>
-</div>
-
-	<div class="bg-putih-logo"></div>
-	<div class="logo-kanan">
-		<img src="pic/logo-berakhlak.png">
-		<img src="pic/bangga-melayani.png">
-	</div>
-
-	<!-- LEFT -->
-	<div class="left">
-	<div class="login-card">
-		<h2>
-			<b>Selamat!</b><br>Anda telah berhasil login
-		</h2>
-
-		<table class="table table-bordered">
-			<tr>
-				<td><b>Username</b></td>
-				<td style="text-align:left;">
-					$(if login-by == 'trial')
-						$(mac)
-					$(elif login-by != 'mac')
-						$(username)
-					$(endif)
-				</td>
-			</tr>
-
-			<tr>
-				<td>IP Address</td>
-				<td style="text-align:left;">$(ip)</td>
-			</tr>
-
-			<tr>
-				<td>MAC Address</td>
-				<td style="text-align:left;">$(mac)</td>
-			</tr>
-
-			<tr>
-				<td>Traffic Down</td>
-				<td style="text-align:left;">$(bytes-out-nice)</td>
-			</tr>
-
-			<tr>
-				<td>Traffic Up</td>
-				<td style="text-align:left;">$(bytes-in-nice)</td>
-			</tr>
-
-			$(if refresh-timeout)
-			<tr>
-				<td>Refresh</td>
-				<td style="text-align:left;">$(refresh-timeout)</td>
-			</tr>
-			$(endif)
-		</table>
-
-		<form action="$(link-logout)" name="logout" onsubmit="return openLogout();">
-			<input type="hidden" name="erase-cookie" value="on">
-
-			$(if login-by-mac != 'yes')
-			<button type="submit" class="btn btn-login">
-				<small>
-					<b>
-						<span class="glyphicon glyphicon-off"></span>
-						LOGOUT
-					</b>
-				</small>
-			</button>
-			$(endif)
-		</form>
-
-		<div class="footer-login" id="clock"></div>
-	</div>
-</div>
-
-	<!-- RIGHT -->
-	<div class="right">
-
-		<div class="top-menu">
-			<!-- <a href="#" class="menu-link active" data-target="survey">SURVEY</a> -->
-			<a href="#" class="menu-link active" data-target="home">HOME</a>
-			<a href="#" class="menu-link" data-target="hubungi">HUBUNGI KAMI</a>
-			<a href="#" class="menu-link" data-target="tentang">TENTANG KAMI</a>
+		<!-- LOGO -->
+		<div class="logo-header">
+			<img src="pic/logo-polbangtan.png" alt="Logo Polbangtan">
+			<div class="logo-text">
+				Politeknik Pembangunan<br>Pertanian Gowa
+			</div>
 		</div>
-
-		<div class="content-area" style="margin-top: 50px;">
-
-			<div class="content-section active" id="home">                
-				<img src="pic/rules.png" width="80%">
-                <ul style="font-size: .93rem; margin-top: 30px;">
-                    <li>Akun hotspot bersifat pribadi dan tidak boleh dipinjamkan atau dibagikan.</li>
-                    <li>Akses internet hanya untuk keperluan akademik dan administratif kampus.</li>
-                    <li>Dilarang mengakses situs terlarang (pornografi, perjudian, SARA, radikalisme) serta mengunduh atau mengunggah file besar yang tidak relevan.</li>
-                    <li>Penggunaan berlebihan atau mencurigakan dapat menyebabkan akun diblokir.</li>
-                    <li>Pelanggaran aturan akan dikenakan sanksi sesuai ketentuan kampus.</li>
-                </ul>
-                <p style="color: #f7ca37;font-size: 1rem;font-weight: bold;text-align: center;">Tingkatkan Layanan Internet Kampus<br> dengan mengisi survey di bawah ini :</p>
-                <button type="submit" class="btn btn-survey" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdQrx-gR5A0a9E1N8x55ORNQ48p_JgZYVgdpext_pMcQljyTg/viewform?usp=publish-editor','_blank')">
-                    
-				<small>
-					<b>						
-						SURVEY KEPUASAN PELANGGAN
+		<div class="bg-putih-logo"></div>
+		<div class="logo-kanan">
+			<img src="pic/logo-berakhlak.png">
+			<img src="pic/bangga-melayani.png">
+		</div>
+		<!-- LEFT -->
+		<div class="left">
+			<div class="login-card">
+				<table class="table table-bordered">
+					<tr>
+						<td><b>Username</b></td>
+						<td style="text-align:left;">
+							$(if login-by == 'trial')
+							$(mac)
+							$(elif login-by != 'mac')
+							$(username)
+							$(endif)
+						</td>
+					</tr>
+					<tr>
+						<td>IP Address</td>
+						<td style="text-align:left;">$(ip)</td>
+					</tr>
+					<tr>
+						<td>MAC Address</td>
+						<td style="text-align:left;">$(mac)</td>
+					</tr>
+					<tr>
+						<td>Traffic Down</td>
+						<td style="text-align:left;">$(bytes-out-nice)</td>
+					</tr>
+					<tr>
+						<td>Traffic Up</td>
+						<td style="text-align:left;">$(bytes-in-nice)</td>
+					</tr>
+					$(if refresh-timeout)
+					<tr>
+						<td>Refresh</td>
+						<td style="text-align:left;">$(refresh-timeout)</td>
+					</tr>
+					$(endif)
+				</table>
+				<form action="$(link-logout)" name="logout" onsubmit="return openLogout();">
+					<input type="hidden" name="erase-cookie" value="on">
+					$(if login-by-mac != 'yes')
+					<button type="submit" class="btn btn-login">
+					<small>
+					<b>
+					<span class="glyphicon glyphicon-off"></span>
+					LOGOUT
 					</b>
-				</small>
-			</button>   
-
-            </div>
-			<!-- <div class="content-section" id="home">
-				<img src="pic/home.png" width="93%">
-				<div class="hero-text">
-	
-					<p style="text-align: justify;">Layanan internet ini disediakan untuk mendukung kegiatan pendidikan, penelitian, administrasi, dan pelayanan akademik bagi mahasiswa, dosen, dan pegawai.</p>                    
-                    <p style="text-align: justify;">
-                        Setiap pengguna wajib login menggunakan akun resmi kampus dan menggunakan layanan internet secara bijak, aman, dan bertanggung jawab sesuai dengan kebijakan Teknologi Informasi Polbangtan Gowa.</p>
+					</small>
+					</button>
+					$(endif)
+				</form>
+				<div class="footer-login" id="clock"></div>
+			</div>
+		</div>
+		<!-- RIGHT -->
+		<div class="right">
+			<div class="top-menu">
+				<!-- <a href="#" class="menu-link active" data-target="survey">SURVEY</a> -->
+				<a href="#" class="menu-link active" data-target="home">HOME</a>
+				<a href="#" class="menu-link" data-target="hubungi">HUBUNGI KAMI</a>
+				<a href="#" class="menu-link" data-target="tentang">TENTANG KAMI</a>
+			</div>
+			<div class="content-area" style="margin-top: 50px;">
+				<div class="content-section active" id="home">
+					<img src="pic/rules.png" width="80%">
+					<ul style="font-size: .93rem; margin-top: 30px; line-height: 1.6;text-align: justify;">
+						<li>Akun hotspot bersifat pribadi dan tidak boleh dipinjamkan atau dibagikan.</li>
+						<li>Akses internet hanya untuk keperluan akademik dan administratif kampus.</li>
+						<li>Dilarang mengakses situs terlarang (pornografi, perjudian, SARA, radikalisme) serta mengunduh atau mengunggah file besar yang tidak relevan.</li>
+						<li>Penggunaan berlebihan atau mencurigakan dapat menyebabkan akun diblokir.</li>
+						<li>Pelanggaran aturan akan dikenakan sanksi sesuai ketentuan kampus.</li>
+					</ul>
+					<p style="color: #f7ca37;font-size: 1rem;font-weight: bold;text-align: center;">Tingkatkan Layanan Internet Kampus<br> dengan mengisi survey di bawah ini :</p>
+					<button type="submit" class="btn btn-survey" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdQrx-gR5A0a9E1N8x55ORNQ48p_JgZYVgdpext_pMcQljyTg/viewform?usp=publish-editor','_blank')">
+					<small>
+					<b>						
+					SURVEY KEPUASAN PELANGGAN
+					</b>
+					</small>
+					</button>   
 				</div>
-			</div> -->
-
-			<div class="content-section" id="hubungi" style="text-align: left;">
-				<div class="hero-text">
-
-					<h4>Unit Teknologi dan Informasi (TIK) Kampus I</h4>
-					<p style="font-style: italic;">
-						Jl. Malino Km.7 Romanglompoa, Kec. Bontomarannu, Kabupaten Gowa
-					</p>
-
-					<h4 style="margin-top: 3rem;">
-						Unit Teknologi dan Informasi (TIK) Kampus II
-					</h4>
-					<p style="font-style: italic;">
-						Jl. Poros Bone–Sinjai Desa Mappesangka, Kec. Ponre, Kab. Bone
-					</p>
-
-					<div style="margin-top: 1.5rem;">
-						<p>
-							<a href="https://wa.me/081340814212" target="_blank"
-							style="text-decoration: none; color: white;">
+				<!-- <div class="content-section" id="home">
+					<img src="pic/home.png" width="93%">
+					<div class="hero-text">
+					
+						<p style="text-align: justify;">Layanan internet ini disediakan untuk mendukung kegiatan pendidikan, penelitian, administrasi, dan pelayanan akademik bagi mahasiswa, dosen, dan pegawai.</p>                    
+					                <p style="text-align: justify;">
+					                    Setiap pengguna wajib login menggunakan akun resmi kampus dan menggunakan layanan internet secara bijak, aman, dan bertanggung jawab sesuai dengan kebijakan Teknologi Informasi Polbangtan Gowa.</p>
+					</div>
+					</div> -->
+				<div class="content-section" id="hubungi" style="text-align: left;">
+					<div class="hero-text">
+						<h4>Unit Teknologi dan Informasi (TIK) Kampus I</h4>
+						<p style="font-style: italic;">
+							Jl. Malino Km.7 Romanglompoa, Kec. Bontomarannu, Kabupaten Gowa
+						</p>
+						<h4 style="margin-top: 3rem;">
+							Unit Teknologi dan Informasi (TIK) Kampus II
+						</h4>
+						<p style="font-style: italic;">
+							Jl. Poros Bone–Sinjai Desa Mappesangka, Kec. Ponre, Kab. Bone
+						</p>
+						<div style="margin-top: 1.5rem;">
+							<p>
+								<a href="https://wa.me/081340814212" target="_blank"
+									style="text-decoration: none; color: white;">
 								<img src="pict/icon/wa.png" style="width:16px; vertical-align:middle;">
 								&nbsp;&nbsp;0813 4081 4212
-							</a>
-						</p>
-
-						<p>
-							<a href="mailto:utik@polbangtan-gowa.ac.id" target="_blank"
-							style="text-decoration: none; color: white;">
+								</a>
+							</p>
+							<p>
+								<a href="mailto:utik@polbangtan-gowa.ac.id" target="_blank"
+									style="text-decoration: none; color: white;">
 								<img src="pict/icon/email.png" style="width:16px; vertical-align:middle;">
 								&nbsp;&nbsp;utik@polbangtan-gowa.ac.id
-							</a>
-						</p>
-
-						<p>
-							<a href="https://polbangtan-gowa.ac.id" target="_blank"
-							style="text-decoration: none; color: white;">
+								</a>
+							</p>
+							<p>
+								<a href="https://polbangtan-gowa.ac.id" target="_blank"
+									style="text-decoration: none; color: white;">
 								<img src="pict/icon/web.png" style="width:16px; vertical-align:middle;">
 								&nbsp;&nbsp;polbangtan-gowa.ac.id
-							</a>
-						</p>
+								</a>
+							</p>
+						</div>
 					</div>
-
+				</div>
+				<div class="content-section" id="tentang" style="text-align: justify;">
+					<div style="text-align: center;margin-bottom: 3rem;">
+						<img src="pic/logo-polbangtan.png" width="30%" style="text-align: center;">
+					</div>
+					<p>Politeknik Pembangunan Pertanian Gowa adalah perguruan tinggi dilingkungan Kementerian Pertanian Republik Indonesia yang menyelenggarakan pendidikan tinggi program vokasi dengan metode teaching factory dalam berbagai rumpun ilmu terapan, yang bertujuan untuk mendukung pembangunan pertanian.</p>
+					<p>Visi Polbangtan Gowa yaitu menjadi Politeknik Pembangunan Pertanian unggul dalam menyiapkan sumber daya manusia yang maju, mandiri, dan modern.</p>
+					<p>Tujuan Polbangtan Gowa yaitu menghasilkan lulusan yang kompeten dan profesional di bidang pertanian serta memiliki jiwa agrisociopreneurship.</p>
 				</div>
 			</div>
-
-			<div class="content-section" id="tentang" style="text-align: justify;">
-				<div style="text-align: center;margin-bottom: 3rem;">
-					<img src="pic/logo-polbangtan.png" width="30%" style="text-align: center;">
-				</div>
-				
-				<p>Politeknik Pembangunan Pertanian Gowa adalah perguruan tinggi dilingkungan Kementerian Pertanian Republik Indonesia yang menyelenggarakan pendidikan tinggi program vokasi dengan metode teaching factory dalam berbagai rumpun ilmu terapan, yang bertujuan untuk mendukung pembangunan pertanian.</p>
-				<p>Visi Polbangtan Gowa yaitu menjadi Politeknik Pembangunan Pertanian unggul dalam menyiapkan sumber daya manusia yang maju, mandiri, dan modern.</p>
-				<p>Tujuan Polbangtan Gowa yaitu menghasilkan lulusan yang kompeten dan profesional di bidang pertanian serta memiliki jiwa agrisociopreneurship.</p>
-			</div>
-
 		</div>
+		<img src="pic/bg-kiri-bawah.png" class="bg-kiri-bawah">
 	</div>
-<img src="pic/bg-kiri-bawah.png" class="bg-kiri-bawah">
-
-</div>
-<!-- FOOTER -->
-<div class="footer-bar">
-
-	<!-- KIRI BAWAH -->
-	<div class="footer-left">
-		<img src="pic/polbangtan-bisa.png" alt="Polbangtan Bisa" class="gbr-bisa">
-		<img src="pic/tiktok.png" alt="TikTok">
-		<img src="pic/x.png" alt="X">
-		<div class="footer-text2">
-			polbangtangowa
-		</div>
-	</div>
-
-	<!-- KANAN BAWAH -->
-	<div class="footer-right">
-		<div class="footer-text">
-			Layanan ini dikelola oleh Unit Teknologi Informasi<br> dan Komunikasi Polbangtan Gowa
-		</div>
-		<img src="pic/iso-1.png" alt="ISO 1">
-		<img src="pic/iso-2.png" alt="ISO 2">
-		<img src="pic/iso-3.png" alt="ISO 3">
-		<img src="pic/ias.png" alt="IAS">
-		<img src="pic/ia.png" alt="IA">
-	</div>
-
-</div>
-
-				
+	<!-- FOOTER -->
+	<div class="footer-bar">
+		<!-- KIRI BAWAH -->
+		<div class="footer-left">
+			<img src="pic/polbangtan-bisa.png" alt="Polbangtan Bisa" class="gbr-bisa">
+			<img src="pic/tiktok.png" alt="TikTok">
+			<img src="pic/x.png" alt="X">
+			<div class="footer-text2">
+				polbangtangowa
 			</div>
 		</div>
-	</section>
+		<!-- KANAN BAWAH -->
+		<div class="footer-right">
+			<div class="footer-text">
+				Layanan ini dikelola oleh Unit Teknologi Informasi<br> dan Komunikasi Polbangtan Gowa
+			</div>
+			<img src="pic/iso-1.png" alt="ISO 1">
+			<img src="pic/iso-2.png" alt="ISO 2">
+			<img src="pic/iso-3.png" alt="ISO 3">
+			<img src="pic/ias.png" alt="IAS">
+			<img src="pic/ia.png" alt="IA">
+		</div>
+	</div>
+	</div>
+	</div>
 	<script src="js/bootstrap.bundle.min.js"></script>
-	<script>
+	<!-- <script>
 		const navbar = document.querySelector('.navbar-nav');
 		const navLinks = navbar.querySelectorAll('.nav-link');
 		
@@ -662,19 +621,19 @@ footer{
 				link.classList.add('active');
 			});
 		});
-	</script>
-	<script>
+		</script> -->
+	<!-- <script>
 		var slideIndex = 1;
 		showDivs(slideIndex);
-
+		
 		function plusDivs(n) {
 		showDivs(slideIndex += n);
 		}
-
+		
 		function currentDiv(n) {
 		showDivs(slideIndex = n);
 		}
-
+		
 		function showDivs(n) {
 		var i;
 		var x = document.getElementsByClassName("mySlides");
@@ -682,7 +641,7 @@ footer{
 		
 		if (n > x.length) { slideIndex = 1; }
 		if (n < 1) { slideIndex = x.length; }
-
+		
 		// Sembunyikan semua slide
 		for (i = 0; i < x.length; i++) {
 			x[i].style.display = "none";  
@@ -692,42 +651,76 @@ footer{
 		for (i = 0; i < dots.length; i++) {
 			dots[i].className = dots[i].className.replace(" w3-white", "");
 		}
-
+		
 		// Tampilkan slide dan atur tanda bulat aktif
 		x[slideIndex - 1].style.display = "block";  
 		dots[slideIndex - 1].className += " w3-white";
 		}
-
+		
 		// Fungsi untuk mengatur interval otomatis
 		function autoSlide() {
 		plusDivs(1);
 		}
-
+		
 		// Mengatur interval otomatis dengan waktu 3000 milidetik (3 detik)
 		setInterval(autoSlide, 3000);
 		
-	</script>
+		</script> -->
 	<script>
-		
 		function updateClock(){
-	const n=new Date();
-	const d=["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
-	const m=["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-	document.getElementById("clock").innerHTML=
-	`${d[n.getDay()]}, ${n.getDate()} ${m[n.getMonth()]} ${n.getFullYear()} |
-	${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} WITA`;
-}
-setInterval(updateClock,1000);updateClock();
-
-document.querySelectorAll('.menu-link').forEach(m=>{
-	m.onclick=e=>{
+		const n=new Date();
+		const d=["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+		const m=["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+		document.getElementById("clock").innerHTML=
+		`${d[n.getDay()]}, ${n.getDate()} ${m[n.getMonth()]} ${n.getFullYear()} |
+		${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} WITA`;
+		}
+		setInterval(updateClock,1000);updateClock();
+		
+		document.querySelectorAll('.menu-link').forEach(m=>{
+		m.onclick=e=>{
 		e.preventDefault();
 		document.querySelectorAll('.menu-link').forEach(x=>x.classList.remove('active'));
 		document.querySelectorAll('.content-section').forEach(x=>x.classList.remove('active'));
 		m.classList.add('active');
 		document.getElementById(m.dataset.target).classList.add('active');
-	};
-});		
+		};
+		});		
+	</script>
+	<script>
+		window.onload = function(){
+		
+			var user = "$(username)";
+			var profile = "$(profile)";
+			var uptime = "$(uptime)";
+		
+			/* === LOGIN WA ONLY === */
+			if(user === "wa_only"){
+				showToast(
+					"success",
+					"Login WhatsApp",
+					"Akses internet aktif. Layanan ini hanya dapat digunakan pada aplikasi Whatsapp."
+				);
+				return;
+			}
+		
+			/* === LOGIN KODE AKSES / VOUCHER === */
+			if(profile.toLowerCase().includes("voucher")){
+				showToast(
+					"success",
+					"Akses Aktif",
+					"Login berhasil menggunakan kode akses."
+				);
+				return;
+			}
+		
+			/* === LOGIN AKUN BIASA === */
+			showToast(
+				"success",
+				"Login Berhasil",
+				"Selamat datang, "+ user
+			);
+		};
 	</script>
 	</body>
 </html>
